@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({user}) => {
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -19,7 +19,7 @@ const Header = () => {
             <Nav>
               <Nav.Link href="#deets">Profile picture</Nav.Link>
               <Nav.Link eventKey={2} href="#memes">
-                <button>log in</button>
+                {!user? <button>log in</button> :<button>log out</button>}
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
