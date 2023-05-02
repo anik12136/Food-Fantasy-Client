@@ -1,0 +1,12 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 0fr);
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.all-chefs {
+    text-align: center;
+}
