@@ -13,8 +13,8 @@ const Footer = () => {
             <h3>Quick Links</h3>
             <ul className="list-unstyled">
               <li><a href="/">Home</a></li>
-              <li><a href="/menu">Menu</a></li>
-              <li><a href="/contact">Contact</a></li>
+              <li><a href="/">Menu</a></li>
+              <li><a href="/">Contact</a></li>
             </ul>
           </div>
           <div className="col-md-3">
