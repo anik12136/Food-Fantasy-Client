@@ -11,33 +11,33 @@ import LoginPage from "../pages/Login/Login";
 import Registration from "../pages/Login/Registration";
 
 const router = createBrowserRouter([
-    {
-      path: '/',
-      element: <Main></Main>,
-      children : [
-        {
-            path : '/',
-            element : <Home></Home>
-        },
-        {
-          path : '/recipe/:id',
-          element : <Recipe></Recipe>,
-          loader : ({params}) => fetch (`http://localhost:3000/chefs/${params.id}`)
-        },
-        {
-          path : '/login',
-          element : <LoginPage></LoginPage>
-        },
-        {
-          path : '/registration',
-          element : <Registration></Registration>
-        },
+  {
+    path: '/',
+    element: <Main></Main>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>
+      },
+      {
+        path: '/recipe/:id',
+        element: <Recipe></Recipe>,
+        loader: ({ params }) => fetch(`http://localhost:3000/chefs/${params.id}`)
+      },
+      {
+        path: '/login',
+        element: <LoginPage></LoginPage>
+      },
+      {
+        path: '/register',
+        element: <Registration></Registration>
+      },
 
-        
-        
 
-      ]
-    },
-  ])
 
-  export default router;
+
+    ]
+  },
+])
+
+export default router;

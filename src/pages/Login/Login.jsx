@@ -1,4 +1,6 @@
 import React from 'react';
+import { Button, Container, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
   const handleEmailLogin = () => {
@@ -14,29 +16,34 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="login-page">
-      <h2>Login</h2>
-      <form>
-        <div className="form-group">
-          <label>Email</label>
-          <input type="email" className="form-control" placeholder="Enter email" />
-        </div>
-        <div className="form-group">
-          <label>Password</label>
-          <input type="password" className="form-control" placeholder="Enter password" />
-        </div>
-        <button type="button" className="btn btn-primary" onClick={handleEmailLogin}>
-          Sign in with Email/Password
-        </button>
-        <div className="or-separator">or</div>
-        <button type="button" className="btn btn-danger" onClick={handleGoogleLogin}>
-          Sign in with Google
-        </button>
-        <button type="button" className="btn btn-dark" onClick={handleGithubLogin}>
-          Sign in with GitHub
-        </button>
-      </form>
-    </div>
+    <Container className='w-25 mx-auto'>
+            <h3>Please Login</h3>
+            <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" name='email' placeholder="Enter email" required />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" name='password' placeholder="Password" required />
+                </Form.Group>
+
+                <Button variant="primary" type="submit">
+                    Login
+                </Button>
+                <br />
+                <Form.Text className="text-secondary">
+                    Don't Have an Account? <Link to="/register">Register</Link>
+                </Form.Text>
+                <Form.Text className="text-success">
+
+                </Form.Text>
+                <Form.Text className="text-danger">
+
+                </Form.Text>
+            </Form>
+        </Container>
   );
 };
 
