@@ -1,55 +1,80 @@
-// import React, { useContext } from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { createUserWithEmailAndPassword, getAuth, updateProfile } from 'firebase/auth'
+import app from '../../firebase/firebase.config';
 import { Link } from 'react-router-dom';
-// import { AuthContext } from '../../../providers/AuthProvider';
-// import { useState } from 'react';
 
-const Registration = () => {
+const auth = getAuth(app);
+
+const Register = () => {
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+    const [photo, setPhoto] = useState('');
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setSuccess('');
+        setError('');
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+        const name = event.target.name.value;
+        const photo = event.target.photo.value;
+        console.log(name, email, password,photo)
+
+        
+         if (password.length < 6) {
+            setError('Please add at least 6 characters in your password')
+            return;
+        }
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                console.log(loggedUser.displayName);
+                setPhoto()
+                setError('');
+                event.target.reset();
+                setSuccess('User has been created successfully');
+                updateUserData(result.user, name,photo);
+            })
+            .catch(error => {
+                console.error(error.message);
+                setError(error.message);
+            })
+    }   
+
+    const updateUserData = (user, name, photo) => {
+        updateProfile(user, {
+            displayName: name, 
+            photoURL: photo
+        })
+            .then(() => {
+                console.log('user name and photo updated')
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+    }
+
     return (
-        <Container className='w-25 mx-auto'>
-            <h3>Please Register</h3>
-            <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" name='name' placeholder="Your Name" required />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Photo URL</Form.Label>
-                    <Form.Control type="text" name='photo' placeholder="Photo URL" required />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name='email' placeholder="Enter email" required />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name='password' placeholder="Password" required />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check
-                        // onClick={handleAccepted}
-                        type="checkbox"
-                        name="accept"
-                        label={<>Accept <Link to="/terms">Terms and Conditions</Link> </>} />
-                </Form.Group>
-                <Button variant="primary"  type="submit">
-                    Register
-                </Button>
+        <div className='w-50 mx-auto'>
+            <h4>Please Register</h4>
+            <form onSubmit={handleSubmit}>
+                <input className='w-50 mb-4 rounded ps-2' type="text" name="name" id="name" placeholder='Your Name' required />
                 <br />
-                <Form.Text className="text-secondary">
-                    Already Have an Account? <Link to="/login">Login</Link>
-                </Form.Text>
-                <Form.Text className="text-success">
-
-                </Form.Text>
-                <Form.Text className="text-danger">
-
-                </Form.Text>
-            </Form>
-        </Container>
+                <input className='w-50 mb-4 rounded ps-2' type="text" name="photo" id="photo" placeholder='Your photo url' required />
+                <br />
+                <input className='w-50 mb-4 rounded ps-2'  type="email" name="email" id="email" placeholder='Your Email' required />
+                <br />
+                <input className='w-50 mb-4 rounded ps-2'  type="password" name="password" id="password" placeholder='Your Password' required />
+                <br />
+                <input className='btn btn-primary' type="submit" value="Register" />
+            </form>
+            <p><small>Already have an account? Please <Link to="/login">Login</Link> </small></p>
+            <p className='text-danger'>{error}</p>
+            <p className='text-success'>{success}</p>
+        </div>
     );
 };
 
-export default Registration;
+export default Register;
