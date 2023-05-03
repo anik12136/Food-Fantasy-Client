@@ -8,7 +8,7 @@ const auth = getAuth(app);
 const Register = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
-    const [photo, setPhoto] = useState('');
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -30,8 +30,6 @@ const Register = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                console.log(loggedUser.displayName);
-                setPhoto()
                 setError('');
                 event.target.reset();
                 setSuccess('User has been created successfully');

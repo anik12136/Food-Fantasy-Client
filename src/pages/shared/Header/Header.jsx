@@ -5,7 +5,13 @@ import { AuthContext } from '../../../Providers/AuthProvider';
 import { FaRegUser } from 'react-icons/fa';
 const Header = () => {
 
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => { })
+      .catch(error => console.error(error))
+  }
 
   return (
     <div>
@@ -28,8 +34,8 @@ const Header = () => {
 
             </Nav>
             <Nav>
-              <Nav.Link style={{fontSize:'1.3rem'}} href="#deets">{user ? <FaRegUser></FaRegUser> : 'profile picture'}</Nav.Link>
-              <Nav.Link className='my-auto'>{!user ? <Link to="./login"><button>log in</button></Link> : <Link ><button>log out</button></Link>}</Nav.Link>
+              <Nav.Link style={{ fontSize: '1.3rem' }} href="#deets">{user ? <FaRegUser></FaRegUser> : 'profile picture'}</Nav.Link>
+              <Nav.Link className='my-auto'>{!user ? <Link to="./login"><button>log in</button></Link> : <Link ><button onClick={handleLogOut} >log out</button></Link>}</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

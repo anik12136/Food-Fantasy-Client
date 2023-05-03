@@ -5,10 +5,10 @@ import { AuthContext } from '../../Providers/AuthProvider';
 
 const LoginPage = () => {
     const { signIn } = useContext(AuthContext);
-    // const navigate = useNavigate();
-    // const location = useLocation();
-    // console.log('login page location', location)
-    // const from = location.state?.from?.pathname || '/'
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log('login page location', location)
+    const from = location.state?.from?.pathname || '/'
 
     const handleLogin = event => {
         event.preventDefault();
@@ -21,7 +21,7 @@ const LoginPage = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                // navigate(from, { replace: true })
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error);

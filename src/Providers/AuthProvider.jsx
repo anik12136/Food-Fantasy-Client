@@ -40,7 +40,7 @@ const AuthProviders = ({children}) => {
         }
 
     }, [])
-
+    console.log('user-',user)
     const authInfo = {
         user,
         loading,
