@@ -1,0 +1,11 @@
+.background-recipe {
+    background-image: url('https://as1.ftcdn.net/v2/jpg/02/97/31/24/1000_F_297312434_HAJtocovWEVE3E1dFuzkSRTkN5esMGPU.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+
+  }
+  
+  .recipe-banner-text{
+    width: 50%;
+  }

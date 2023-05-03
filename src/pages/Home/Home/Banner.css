@@ -1,6 +1,10 @@
 .background-image {
-    background-image: url('https://as1.ftcdn.net/v2/jpg/03/32/75/44/1000_F_332754450_eEoGIDUKtt2jK5YCuvC7qWtttJB0I6dn.jpg');
+    background-image: url('https://as1.ftcdn.net/v2/jpg/03/51/66/90/1000_F_351669054_yVMW0YgLHj9fLUBralJk4HMjh7PqxUPm.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 400px;
+  }
+
+  .all-your-food{
+    text-align: center;
   }
