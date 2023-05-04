@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -12,9 +13,9 @@ const Footer = () => {
           <div className="col-md-3">
             <h3>Quick Links</h3>
             <ul className="list-unstyled">
-              <li><a href="/">Home</a></li>
-              <li><a href="/">Menu</a></li>
-              <li><a href="/">Contact</a></li>
+            <Link to="/" >Home</Link> 
+            <Link to="/" >Menu</Link> 
+            <Link to="/" >Contact</Link> 
             </ul>
           </div>
           <div className="col-md-3">

@@ -3,9 +3,16 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import { FaRegUser } from 'react-icons/fa';
+import './Header.css';
 const Header = () => {
 
   const { user, logOut } = useContext(AuthContext);
+
+  // if (user) {
+  //   const userName = user.displayName;
+  //   const userPhoto = user.photoURL;
+
+  // }
 
   const handleLogOut = () => {
     logOut()
@@ -29,12 +36,17 @@ const Header = () => {
                 <Link className="text-decoration-none text-white-50" to="/">Home</Link>
               </Nav.Link>
               <Nav.Link href="#deets">
-                <Link className="text-decoration-none text-white-50 ms-5" to="./blogs">Blogs</Link>
+                <Link className="text-decoration-none text-white-50 ms-5" to="./blog">Blogs</Link>
               </Nav.Link>
 
             </Nav>
             <Nav>
-              <Nav.Link style={{ fontSize: '1.3rem' }} href="#deets">{user ? <FaRegUser></FaRegUser> : 'profile picture'}</Nav.Link>
+              <Nav.Link style={{ fontSize: '1.3rem' }} href="#deets">{
+              !user ? <FaRegUser></FaRegUser> 
+              : 
+              <img className='userImage rounded-circle' src={user.photoURL} alt="" />
+              }
+              </Nav.Link>
               <Nav.Link className='my-auto'>{!user ? <Link to="./login"><button>log in</button></Link> : <Link ><button onClick={handleLogOut} >log out</button></Link>}</Nav.Link>
             </Nav>
           </Navbar.Collapse>
