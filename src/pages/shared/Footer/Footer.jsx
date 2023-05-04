@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="row">
           <div className="col-md-6">
             <h3>About Us</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tristique metus ac dui consectetur, at lobortis arcu rhoncus.</p>
+            <p>Welcome to our website! We are excited to have you here and would like to take a moment to introduce ourselves. Our "About Us" section is where you can get to know us better, learn about our story, and understand our mission. So, let's dive in and discover who we are!</p>
           </div>
           <div className="col-md-3">
             <h3>Quick Links</h3>
