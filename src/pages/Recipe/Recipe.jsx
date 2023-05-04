@@ -1,8 +1,8 @@
 import React from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import RecipeCard from './RecipeCard';
 import './Recipe.css';
-
+import { FaHeart } from 'react-icons/fa';
 const Recipe = () => {
     // const {id} = useParams();
     const chef = useLoaderData();
@@ -23,7 +23,7 @@ const Recipe = () => {
                     <div className='d-flex'>
                         <p>Years of experience :{chef.years_of_experience} </p>
                         <div className='d-flex ms-5'>
-                            <p>Likes : </p>
+                            <p className='me-2'><FaHeart></FaHeart></p>
                             {chef.likes}
                         </div>
                     </div>

@@ -55,7 +55,7 @@ const Register = () => {
     }
 
     return (
-        <div className='w-50 mx-auto'>
+        <div className='w-50 mx-auto my-5'>
             <h4>Please Register</h4>
             <form onSubmit={handleSubmit}>
                 <input className='w-50 mb-4 rounded ps-2' type="text" name="name" id="name" placeholder='Your Name' required />

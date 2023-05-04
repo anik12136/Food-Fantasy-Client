@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const LoginPage = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, signInWithGoogle, signInWithGithub, user } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     console.log('login page location', location)
@@ -28,9 +29,31 @@ const LoginPage = () => {
             })
     }
 
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
-  return (
-    <Container className='w-25 mx-auto'>
+    const handleGithubSignIn = () => {
+        signInWithGithub()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
+
+    return (
+        <Container className='w-25 mx-auto my-5'>
             <h3>Please Login</h3>
             <Form onSubmit={handleLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -46,6 +69,16 @@ const LoginPage = () => {
                 <Button variant="primary" type="submit">
                     Login
                 </Button>
+                {
+                    !user &&
+                    <div>
+                        {/* <button onClick={handleGoogleSignIn} className="btn btn-primary">Google</button>
+                        <button onClick={handleGithubSignIn} className="btn btn-primary">Github</button> */}
+                        <h4 className='mt-4'>Login With</h4>
+                        <Button onClick={handleGoogleSignIn} className='mb-2' variant="outline-primary"> <FaGoogle /> Login with Google</Button>
+                        <Button onClick={handleGithubSignIn} variant="outline-secondary"> <FaGithub></FaGithub> Login with Github</Button>
+                    </div>
+                }
                 <br />
                 <Form.Text className="text-secondary">
                     Don't Have an Account? <Link to="/register">Register</Link>
@@ -58,7 +91,7 @@ const LoginPage = () => {
                 </Form.Text>
             </Form>
         </Container>
-  );
+    );
 };
 
 export default LoginPage;

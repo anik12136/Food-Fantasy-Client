@@ -9,6 +9,8 @@ import LoginPage from "../pages/Login/Login";
 import Registration from "../pages/Login/Registration";
 import PrivateRoute from "./PrivateRoute";
 import Blog from "../pages/Blog/Blog";
+import NotFound from "../pages/Error/NotFound";
+
 
 const router = createBrowserRouter([
   {
@@ -35,13 +37,13 @@ const router = createBrowserRouter([
       {
         path: '/blog',
         element: <Blog></Blog>
-      },
-
-
-
-
+      }
     ]
   },
-])
+  {
+    path : '*',
+    element : <NotFound></NotFound>
+  },
+]) ;
 
 export default router;

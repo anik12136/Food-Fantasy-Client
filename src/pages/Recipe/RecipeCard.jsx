@@ -6,7 +6,7 @@ const RecipeCard = ({ recipe }) => {
     return (
         <div className='mx-4'>
 
-            <Card style={{ width: '18rem' }}>
+            <Card className='mb-5' style={{ width: '18rem', height:'100%' }}>
                 <Card.Img  variant="top" src={recipe_picture} />
                 <Card.Body>
                     <Card.Title>{recipe_name}</Card.Title>
