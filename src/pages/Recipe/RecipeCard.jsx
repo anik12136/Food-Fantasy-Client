@@ -22,10 +22,16 @@ const RecipeCard = ({ recipe }) => {
 
 
                     <div>
+                        <h4>ingredients :</h4>
                         {
-                            ingredients.map
+                            ingredients.map (item => <p key={item.resId}>
+                                {item}
+                            </p>
+                                
+                                )
                         }
                     </div>
+
                 </Card.Body>
             </Card>
 
