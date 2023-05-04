@@ -6,7 +6,7 @@ const Chefs = () => {
   const [chefs, setChefs] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:3000/chefs')
+    fetch('https://server-firebase-assignment-10-anik12136.vercel.app/chefs')
       .then(res => res.json())
       .then(data => setChefs(data))
       .catch(error => console.error(error))

@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       {
         path: '/recipe/:id',
         element: <PrivateRoute><Recipe></Recipe></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:3000/chefs/${params.id}`)
+        loader: ({ params }) => fetch(`https://server-firebase-assignment-10-anik12136.vercel.app/chefs/${params.id}`)
       },
       {
         path: '/login',
