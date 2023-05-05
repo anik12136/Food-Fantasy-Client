@@ -1,5 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
-
+import './Banner.css';
 function CarouselFadeExample() {
     return (
         <Carousel fade >
@@ -11,7 +11,18 @@ function CarouselFadeExample() {
                     alt="First slide"
                 />
                 <Carousel.Caption>
-                    <h2 className="mt-5">Welcome to Food Fantasy</h2>
+                    <h1 className="mt-5 Banner1"
+                    style={{margin:'120px',marginLeft:'-500px'}}
+                    >Choice Your Favorite <span className='text-info'>Thai Food</span>
+                    <br /> 
+                    
+                    <span>Find Best</span>  <span className='text-info'>Thai Chef</span> 
+                    <br />
+                     <span className='text-warning'>And</span>
+                     <br />
+                    Explore Special 
+                    <br /> <span className='text-info'>Thai Food Recipes</span>
+                     </h1>
 
                 </Carousel.Caption>
             </Carousel.Item>
