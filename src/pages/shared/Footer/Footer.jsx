@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import './Footer.css';
 const Footer = () => {
   return (
-    <footer className="footer p-5" style={{ backgroundColor: 'black', color: 'white' }}>
+    <footer className="footer p-5 " style={{ backgroundColor: 'black', color: 'rgb(99, 98, 98)' }}>
       <div className="container">
         <div className="row">
           <div className="col-md-6">
@@ -13,16 +13,18 @@ const Footer = () => {
           <div className="col-md-3">
             <h3>Quick Links</h3>
             <ul className="list-unstyled">
-            <Link to="/" >Home</Link> 
-            <Link to="/" >Menu</Link> 
-            <Link to="/" >Contact</Link> 
+              <Link className="FooterLink" to="/" >Home</Link>
+              <br />
+              <Link className="FooterLink" to="*" >Menu</Link>
+              <br />
+              <Link className="FooterLink" to="*" >Contact</Link>
             </ul>
           </div>
           <div className="col-md-3">
             <h3>Contact Us</h3>
-            <p>123 Main Street</p>
-            <p>City, State ZIP</p>
-            <p>Email: info@example.com</p>
+            <p>Mirpur Main Street</p>
+            <p>Dhaka, Mirpur</p>
+            <p>Email: foodfantasy@gmail.com</p>
             <p>Phone: 123-456-7890</p>
           </div>
         </div>
