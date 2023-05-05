@@ -1,36 +1,42 @@
 import React from 'react';
 import './RecipeCard.css';
 import { Card } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 const RecipeCard = ({ recipe }) => {
     const { cooking_method, description, rating, recipe_name, recipe_picture, ingredients } = recipe;
     return (
         <div className='mx-4'>
 
-            <Card className='mb-5' style={{ width: '18rem', height:'100%' }}>
-                <Card.Img  variant="top" src={recipe_picture} />
+            <Card className='mb-5' style={{ width: '18rem', height: '600px' }}>
+                <div>
+                    <Card.Img style={{ height: '150px' }} variant="top" src={recipe_picture} />
+                </div>
                 <Card.Body>
                     <Card.Title>{recipe_name}</Card.Title>
-                    <Card.Text>
+                    <Card.Text style={{ fontSize: '12px' }}>
                         {description}
                     </Card.Text>
-                    <Card.Text>
-                        cooking_method:{cooking_method}
-                    </Card.Text>
-                    <Card.Text>
-                        rating:{rating}
+                    <Card.Text style={{ fontSize: '10px' }}>
+                        <span style={{ fontSize: '10px' }}>cooking_method:</span>{cooking_method}
                     </Card.Text>
 
-
-                    <div>
-                        <h4>ingredients :</h4>
+                    <div style={{ fontSize: '12px' }}>
+                        <h4 style={{ fontSize: '16px' }}>ingredients :</h4>
                         {
-                            ingredients.map (item => <p key={item.resId}>
+                            ingredients.map(item => <l key={item.resId}>,
                                 {item}
-                            </p>
-                                
-                                )
+                            </l>
+                            )
                         }
                     </div>
+                    <Card.Text className="d-flex justify-content-between mt-3 align-items-center justify-content-center" style={{ fontSize: '16px' }}>
+                        <p> rating:{rating}</p>
+                        {/* <FontAwesomeIcon icon="fa-regular fa-heart" /> */}
+                        <div className="ms-5">
+                            <button type="button" class="btn btn-outline-secondary">Favorite<FontAwesomeIcon className="ms-2" icon={faHeart} /></button>
+                        </div>
+                    </Card.Text>
 
                 </Card.Body>
             </Card>

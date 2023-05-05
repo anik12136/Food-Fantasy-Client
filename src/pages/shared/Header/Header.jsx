@@ -42,12 +42,26 @@ const Header = () => {
             </Nav>
             <Nav>
               <Nav.Link style={{ fontSize: '1.3rem' }} href="#deets">{
-              !user ? <FaRegUser></FaRegUser> 
-              : 
-              <img className='userImage rounded-circle' src={user.photoURL} alt="" />
+                user &&
+                <div class="hover-container">
+                  <img className='userImage rounded-circle' src={user.photoURL} alt="" />
+                  <div class="hover-text">
+                    <span>{user.displayName}</span>
+                  </div>
+                </div>
               }
               </Nav.Link>
-              <Nav.Link className='my-auto'>{!user ? <Link to="./login"><button>log in</button></Link> : <Link ><button onClick={handleLogOut} >log out</button></Link>}</Nav.Link>
+              {
+                !user &&
+                <Nav.Link className='my-auto'>{!user ? <Link to="./login"><button>log in</button></Link> : <Link ><button onClick={handleLogOut} >log out</button></Link>}</Nav.Link>
+              }
+              {
+                user && 
+                <Nav.Link className='my-auto'>
+                <Link ><button onClick={handleLogOut} >log out</button></Link>
+                </Nav.Link>
+              }
+
             </Nav>
           </Navbar.Collapse>
         </Container>

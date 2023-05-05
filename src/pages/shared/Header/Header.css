@@ -3,6 +3,39 @@
 }
 
 .userImage{
-    height: 35px;
-    width: 35px;
+    height: 20px;
+    width: 20px;
 }
+
+.hover-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .hover-text {
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .hover-container:hover .hover-text {
+    opacity: 1;
+  }
+  
+  .hover-text span {
+    font-size: 10px;
+    font-weight: bold;
+  }
+  
+  .hover-container img {
+    width: 50px; 
+    height: auto;
+  }
+  
