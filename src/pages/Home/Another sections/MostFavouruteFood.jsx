@@ -4,7 +4,7 @@ import './MostFavouruteFood.css';
 const MostFavouruteFood = () => {
     return (
         <div className=' mx-5 mt-5'>
-            <h2 className='text-center mb-4 shadow p-3 mb-5 bg-body-tertiary rounded '>This week Most Favorite Food </h2>
+            <h2 className='text-center mb-4 shadow p-3 mb-5 bg-body-tertiary rounded '> Most Favorite Food Of This week</h2>
             <section className="favorite-food-section d-flex mt-2 ">
                 <div className="food-card border border-end-0 border-top-0 shadow p-3 mb-5 bg-body-tertiary rounded">
                     <img className='imageHeight mb-2' src="https://img.freepik.com/free-photo/delicious-fried-chicken-plate_144627-27383.jpg?t=st=1683220342~exp=1683220942~hmac=01387d13b5230fa28e55960e67b89572203573aa294e2b0046b1b3b7683d0d3d" alt="Food 1" />

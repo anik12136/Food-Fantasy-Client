@@ -13,9 +13,9 @@ const Recipe = () => {
     return (
         <div>
             <div className='d-flex background-recipe  align-items-center '>
-                <img className='rounded-circle h-50 w-30' src={chef.chef_picture} alt="" />
+                <img className='rounded-circle h-50 w-30 ms-4' src={chef.chef_picture} alt="" />
 
-                <div className='text-white ms-5 recipe-banner-text'>
+                <div className='text-white ms-3 recipe-banner-text bg-secondary opacity-75 p-4'>
 
                     <h2>{chef.chef_name}</h2>
                     <p>{chef.description} </p>

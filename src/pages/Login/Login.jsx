@@ -1,14 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext,useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
+
 const LoginPage = () => {
+    const [error, setError] = useState('');
+    
     const { signIn, signInWithGoogle, signInWithGithub, user } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
-    console.log('login page location', location)
+    
     const from = location.state?.from?.pathname || '/'
 
     const handleLogin = event => {
@@ -16,16 +19,16 @@ const LoginPage = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        
 
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                event.target.reset();
                 navigate(from, { replace: true })
             })
             .catch(error => {
-                console.log(error);
+                setError(error.message);
             })
     }
 
@@ -33,10 +36,10 @@ const LoginPage = () => {
         signInWithGoogle()
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                
             })
             .catch(error => {
-                console.log(error)
+                
             })
     }
 
@@ -44,16 +47,17 @@ const LoginPage = () => {
         signInWithGithub()
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                
             })
             .catch(error => {
-                console.log(error)
+                
             })
     }
 
 
     return (
         <Container className='w-25 mx-auto my-5'>
+            <p className='text-danger'>{error}</p>
             <h3>Please Login</h3>
             <Form onSubmit={handleLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -80,6 +84,7 @@ const LoginPage = () => {
                     </div>
                 }
                 <br />
+                
                 <Form.Text className="text-secondary">
                     Don't Have an Account? <Link to="/register">Register</Link>
                 </Form.Text>

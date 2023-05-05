@@ -18,7 +18,7 @@ const Register = () => {
         const password = event.target.password.value;
         const name = event.target.name.value;
         const photo = event.target.photo.value;
-        console.log(name, email, password,photo)
+        
 
         
          if (password.length < 6) {
@@ -29,14 +29,14 @@ const Register = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                
                 setError('');
                 event.target.reset();
                 setSuccess('User has been created successfully');
                 updateUserData(result.user, name,photo);
             })
             .catch(error => {
-                console.error(error.message);
+                
                 setError(error.message);
             })
     }   
@@ -56,6 +56,7 @@ const Register = () => {
 
     return (
         <div className='w-50 mx-auto my-5'>
+            <p className='text-success'>{success}</p>
             <h4>Please Register</h4>
             <form onSubmit={handleSubmit}>
                 <input className='w-50 mb-4 rounded ps-2' type="text" name="name" id="name" placeholder='Your Name' required />
@@ -66,11 +67,12 @@ const Register = () => {
                 <br />
                 <input className='w-50 mb-4 rounded ps-2'  type="password" name="password" id="password" placeholder='Your Password' required />
                 <br />
+                <p className='text-danger'>{error}</p>
                 <input className='btn btn-primary' type="submit" value="Register" />
             </form>
             <p><small>Already have an account? Please <Link to="/login">Login</Link> </small></p>
-            <p className='text-danger'>{error}</p>
-            <p className='text-success'>{success}</p>
+            
+            
         </div>
     );
 };

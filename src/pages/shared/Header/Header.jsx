@@ -43,9 +43,9 @@ const Header = () => {
             <Nav>
               <Nav.Link style={{ fontSize: '1.3rem' }} href="#deets">{
                 user &&
-                <div class="hover-container">
+                <div className="hover-container">
                   <img className='userImage rounded-circle' src={user.photoURL} alt="" />
-                  <div class="hover-text">
+                  <div className="hover-text">
                     <span>{user.displayName}</span>
                   </div>
                 </div>
@@ -53,12 +53,12 @@ const Header = () => {
               </Nav.Link>
               {
                 !user &&
-                <Nav.Link className='my-auto'>{!user ? <Link to="./login"><button>log in</button></Link> : <Link ><button onClick={handleLogOut} >log out</button></Link>}</Nav.Link>
+                <Nav.Link className='my-auto'>{!user ? <Link to="./login"><button className="btn btn-light">log in</button></Link> : <Link ><button onClick={handleLogOut} >log out</button></Link>}</Nav.Link>
               }
               {
                 user && 
                 <Nav.Link className='my-auto'>
-                <Link ><button onClick={handleLogOut} >log out</button></Link>
+                <Link ><button onClick={handleLogOut} className="btn btn-light">log out</button></Link>
                 </Nav.Link>
               }
 

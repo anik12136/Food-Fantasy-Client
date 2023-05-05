@@ -5,7 +5,7 @@ import MostFavouruteFood from '../Another sections/MostFavouruteFood';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import QuickOrder from './QuickOrder';
 const Home = () => {
     return (
         <div>
@@ -17,7 +17,7 @@ const Home = () => {
                         <Chefs></Chefs>
                         </Col>
                         <Col sm={3}>
-                        
+                        <QuickOrder></QuickOrder>
                         </Col>
                     </Row>
                 </Container>
