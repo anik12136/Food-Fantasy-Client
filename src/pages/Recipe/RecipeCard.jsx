@@ -3,12 +3,19 @@ import './RecipeCard.css';
 import { Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const RecipeCard = ({ recipe }) => {
+    const handleClick = () => {
+        toast('Added to favorite');
+      };    
+
     const { cooking_method, description, rating, recipe_name, recipe_picture, ingredients } = recipe;
     return (
         <div className='mx-4'>
 
-            <Card className='mb-5' style={{ width: '18rem', height: '600px' }}>
+            <Card className='mb-5' style={{ width: '18rem', height: '570px' }}>
                 <div>
                     <Card.Img style={{ height: '150px' }} variant="top" src={recipe_picture} />
                 </div>
@@ -34,8 +41,9 @@ const RecipeCard = ({ recipe }) => {
                         <p> rating:{rating}</p>
                         {/* <FontAwesomeIcon icon="fa-regular fa-heart" /> */}
                         <div className="ms-5">
-                            <button type="button" class="btn btn-outline-secondary">Favorite<FontAwesomeIcon className="ms-2" icon={faHeart} /></button>
+                            <button onClick={handleClick} type="button" class="btn btn-outline-secondary">Favorite<FontAwesomeIcon className="ms-2" icon={faHeart} /></button>
                         </div>
+                        <ToastContainer />
                     </Card.Text>
 
                 </Card.Body>
